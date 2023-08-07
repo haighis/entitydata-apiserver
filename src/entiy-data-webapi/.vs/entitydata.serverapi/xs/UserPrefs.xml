@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{3E0703E1-4AF7-4195-B469-7B4373F875DA}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.entitydata.webapi PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="14" Column="31" />
+      <File FileName="Controllers/WeatherForecastController.cs" Line="3" Column="1" />
+      <File FileName="Controllers/WriteController.cs" Line="47" Column="79" />
+      <File FileName="WeatherForecast.cs" Line="1" Column="1" />
+      <File FileName="DataWriteRequest.cs" Line="18" Column="2" />
+      <File FileName="DataViewRequest.cs" Line="4" Column="29" />
+      <File FileName="Controllers/ReadController.cs" Line="9" Column="36" />
+      <File FileName="DOCKER.md" Line="4" Column="12" />
+      <File FileName="Dockerfile" Line="13" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

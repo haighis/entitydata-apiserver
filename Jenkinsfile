@@ -14,7 +14,7 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         stage('Build project') {
-            //git 'https://github.com/spring-projects/spring-petclinic.git'
+            git 'https://github.com/haighis/entitydata-apiserver'
             container('netsdk') {
                 stage('Build a net project') {
                     sh '''

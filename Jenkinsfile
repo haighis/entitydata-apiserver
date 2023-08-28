@@ -19,21 +19,13 @@ podTemplate(containers: [
                 stage('Build a Maven project') {
                     sh '''
                     echo "maven build"
+                    mvn -B -ntp clean package -DskipTests
                     '''
                 }
             }
         }
 
-        stage('Get a python Project') {
-            git url: 'https://github.com/hashicorp/terraform.git', branch: 'main'
-            container('python') {
-                stage('Build a Go project') {
-                    sh '''
-                    echo "Go Build"
-                    '''
-                }
-            }
-        }
+ 
 
     }
 }

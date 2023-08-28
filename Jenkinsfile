@@ -13,9 +13,7 @@ podTemplate(containers: [
             container('netsdk') {
                 stage('Build a net project') {
                     sh '''
-                    
                     dotnet build src/entiy-data-webapi/entitydata.webapi.csproj
-                    //mvn -B -ntp clean package -DskipTests
                     '''
                 }
             }

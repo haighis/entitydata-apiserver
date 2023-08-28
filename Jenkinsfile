@@ -7,8 +7,8 @@ pipeline {
                 // container('docker') {
                 //     sh 'docker build -t fluence/portaltest .'
                 // }
-                 dir('src/') {
-                     sh(script: 'dotnet build src/entiy-data-webapi/entitydata.webapi.csproj', returnStdout: true);
+                 dir('src/entiy-data-webapi/') {
+                     sh(script: 'dotnet build entitydata.webapi.csproj', returnStdout: true);
                  }    
             }
         }

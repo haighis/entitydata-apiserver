@@ -1,25 +1,26 @@
 podTemplate(containers: [
     containerTemplate(
-        name: 'maven', 
-        image: 'maven:3.8.1-jdk-8', 
+        name: 'netsdk', 
+        image: 'mcr.microsoft.com/dotnet/sdk:6.0', 
         command: 'sleep', 
         args: '30d'
         ),
-    containerTemplate(
-        name: 'python', 
-        image: 'python:latest', 
-        command: 'sleep', 
-        args: '30d')
+    // containerTemplate(
+    //     name: 'python', 
+    //     image: 'python:latest', 
+    //     command: 'sleep', 
+    //     args: '30d')
   ]) {
 
     node(POD_LABEL) {
-        stage('Get a Maven project') {
-            git 'https://github.com/spring-projects/spring-petclinic.git'
-            container('maven') {
-                stage('Build a Maven project') {
+        stage('Build project') {
+            //git 'https://github.com/spring-projects/spring-petclinic.git'
+            container('netsdk') {
+                stage('Build a net project') {
                     sh '''
-                    echo "maven build"
-                    mvn -B -ntp clean package -DskipTests
+                    
+                    dotnet build
+                    //mvn -B -ntp clean package -DskipTests
                     '''
                 }
             }

@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
+            //steps {
                 echo 'Building..'
                 // container('docker') {
                 //     sh 'docker build -t fluence/portaltest .'
@@ -10,13 +10,13 @@ pipeline {
                 //  dir('src/entiy-data-webapi/') {
                 //      sh(script: 'dotnet build entitydata.webapi.csproj', returnStdout: true);
                 //  }    
-            }
+            //}
         }
 
         stage ('Test') {
-            steps {
+            //steps {
                 echo 'Testing'
-            }
+            //}
         }        
     }
 }

@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build NET Project') {
+        stage('Build') {
             steps {
                 echo 'Building..'
                 // container('docker') {

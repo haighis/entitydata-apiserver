@@ -13,9 +13,9 @@ pipeline {
             }
 
         }
-        stage('Build NET Project') {
+        stage('Build NET Project 2') {
             steps {
-                echo 'Building..'
+                echo 'Building 1..'
                 // container('docker') {
                 //     sh 'docker build -t fluence/portaltest .'
                 // }

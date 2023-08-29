@@ -1,0 +1,15 @@
+pipeline {
+    agent  {
+        label 'kubeagent'
+    }
+
+    stages {
+        stage("build image") {
+            steps {
+                script {
+                    sh "docker build -f src/entiy-data-webapi/Dockerfile ."
+                }
+            }
+        }
+    }
+}

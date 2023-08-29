@@ -1,0 +1,15 @@
+pipeline {
+    agent  {
+        label 'kubeagent'
+    }
+
+    stages {
+        stage("build image") {
+            steps {
+                script {
+                    sh "podman build -t -f src/entiy-data-webapi/dind-client-jenkins-agent ."
+                }
+            }
+        }
+    }
+}

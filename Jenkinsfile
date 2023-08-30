@@ -4,9 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                // container('docker') {
-                //     sh 'docker build -t fluence/portaltest .'
-                // }
                  dir('src/entiy-data-webapi/') {
                      sh(script: 'dotnet build entitydata.webapi.csproj', returnStdout: true);
                  }    
@@ -15,16 +12,34 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
+                
                 dir('src/entiy-data-webapi/') {
-                    sh "docker build ."
+                    sh "docker build -t entity-data-server ."
+                    sh "docker tag entity-data-server haighis/entity-data-server:1.0.2"
+                    
+                    //sh "docker push haighis/entity-data-server:1.0.2"
                 }
             }
         }
         
-        // stage ('Test') {
-        //     steps {
-        //         echo 'Testing'
-        //     }
-        // }        
+        stage ('Unit Tests') {
+            steps {
+                echo 'Testing'
+            }
+        }        
+
+        
+        stage ('Deploy') {
+            steps {
+                echo 'Testing'
+            }
+        }        
+
+        
+        stage ('QA Automation') {
+            steps {
+                echo 'Testing'
+            }
+        }        
     }
 }

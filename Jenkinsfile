@@ -28,10 +28,8 @@ pipeline {
                 dir('src/entiy-data-webapi/') {
                     sh "docker build -t entity-data-server ."
                     sh "docker tag entity-data-server haighis/entity-data-server:1.0.2"
-                    withEnv(["DOCKER_USER=${DOCKER_USER}","DOCKER_PASSWORD=${DOCKER_PASSWORD}"
-                     
-                 ]) {    
-                        sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+                    withEnv(["DOCKER_USER=${DOCKER_USER}","DOCKER_PASSWORD=${DOCKER_PASSWORD}"]) {    
+                        sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}"
                         echo 'my docker username ${DOCKER_USER}' 
                     }
                     

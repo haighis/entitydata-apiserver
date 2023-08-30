@@ -63,7 +63,7 @@ pipeline {
         }
 
         
-        stage ('Deploy to Production') {
+        stage ('Deploy to Production/CD Integration Flux/AgoCD') {
             steps {
                
                 echo 'If this is a release branch then we can deploy to production.'

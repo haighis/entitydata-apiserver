@@ -10,7 +10,19 @@ pipeline {
             }
         }
 
-        stage("Build Docker Image") {
+         stage ('Unit Tests') {
+            steps {
+                echo 'Testing'
+            }
+        }   
+
+           stage ('Unit Tests - SonarQube Analysis') {
+            steps {
+                echo 'Testing'
+            }
+        }   
+
+        stage("Build & Publish Docker Image") {
             steps {
                 
                 dir('src/entiy-data-webapi/') {
@@ -22,23 +34,32 @@ pipeline {
             }
         }
         
-        stage ('Unit Tests') {
+        
+        stage ('Deploy to staging url') {
             steps {
-                echo 'Testing'
+                echo 'Flux/ArgoCD integration. For now we can just talk to k8s directly and write kubectl commands to deploy new docker images'
             }
         }        
 
         
-        stage ('Deploy') {
+        stage ('QA Automation Analysis') {
             steps {
-                echo 'Testing'
+                echo 'This will: 1) run all qa automation such as end to end tests such as Playwright, Selenium, 2) Store results in postgres, 3) analyze results with prior run '
+                echo 'if results do not meet minimum threshold 100 percent then qa automation fails. If this is production then we do not proceed to production deploy step '
             }
-        }        
+        }
+
+        stage ('Send QA Automation Report') {
+            steps {
+                echo 'Send an email with link to qa automation report.'
+            }
+        }
 
         
-        stage ('QA Automation') {
+        stage ('Deploy to Production') {
             steps {
-                echo 'Testing'
+                echo 'If this is a release branch then we can deploy to production. Else we are in develop branch so we deploy to develop url. '
+                echo 'Flux/ArgoCD integration. For now we can just talk to k8s directly and write kubectl commands to deploy new docker images'
             }
         }        
     }

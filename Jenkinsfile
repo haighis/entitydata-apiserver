@@ -1,3 +1,6 @@
+// REFERENCE 
+// - https://e.printstacktrace.blog/jenkins-pipeline-environment-variables-the-definitive-guide/
+// - http://localhost:8787/env-vars.html
 pipeline {
     agent any
     stages {
@@ -27,13 +30,11 @@ pipeline {
                 
                 dir('src/entiy-data-webapi/') {
                     sh "docker build -t entity-data-server ."
-                    sh "docker tag entity-data-server haighis/entity-data-server:1.0.2"
+                    sh "docker tag entity-data-server haighis/entity-data-server:1.0.$BUILD_NUMBER"
                     withEnv(["DOCKER_USER=${DOCKER_USER}","DOCKER_PASSWORD=${DOCKER_PASSWORD}"]) {    
                         sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}"
-                        echo 'my docker username ${DOCKER_USER}' 
+                        sh "docker push haighis/entity-data-server:1.0.$BUILD_NUMBER"
                     }
-                    
-                    //sh "docker push haighis/entity-data-server:1.0.2"
                 }
             }
         }

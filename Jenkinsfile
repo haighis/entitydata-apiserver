@@ -28,9 +28,12 @@ pipeline {
                 dir('src/entiy-data-webapi/') {
                     sh "docker build -t entity-data-server ."
                     sh "docker tag entity-data-server haighis/entity-data-server:1.0.2"
-                    withEnv(["DOCKER_USER=${DOCKER_USER}]) { 
-                             echo 'my docker username ${DOCKER_USER}' 
-                             }
+                    withEnv(["DOCKER_USER=${DOCKER_USER}"
+                     
+                 ]) {    
+                        echo 'my docker username ${DOCKER_USER}' 
+                    }
+                    
                     //sh "docker push haighis/entity-data-server:1.0.2"
                 }
             }

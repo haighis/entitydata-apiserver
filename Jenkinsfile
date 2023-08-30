@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage("build image") {
+        stage("Build Docker Image") {
             steps {
                 dir('src/entiy-data-webapi/') {
                     sh "docker build ."

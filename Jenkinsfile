@@ -15,13 +15,13 @@ pipeline {
 
          stage ('Unit Tests') {
             steps {
-                echo 'Testing'
+                echo 'Run csharp code unit tests'
             }
         }   
 
            stage ('Unit Tests - SonarQube Analysis') {
             steps {
-                echo 'Testing'
+                echo 'Run sonarqube analysis to analyze unit test coverage. Send unit test coverage report url in email or teams integration to Team'
             }
         }   
 

@@ -40,8 +40,10 @@ pipeline {
         }
         
         
-        stage ('Deploy to staging url') {
+        stage ('Deploy to feature branch/qa/demo') {
             steps {
+                echo 'Depending on the branch we are then we deploy to a different environment. '
+                 echo 'If we are in feature branch then we deploy to fb url. If we are in develop branch so we deploy to develop url. '
                 echo 'Flux/ArgoCD integration. For now we can just talk to k8s directly and write kubectl commands to deploy new docker images'
             }
         }        
@@ -63,7 +65,8 @@ pipeline {
         
         stage ('Deploy to Production') {
             steps {
-                echo 'If this is a release branch then we can deploy to production. Else we are in develop branch so we deploy to develop url. '
+               
+                echo 'If this is a release branch then we can deploy to production.'
                 echo 'Flux/ArgoCD integration. For now we can just talk to k8s directly and write kubectl commands to deploy new docker images'
             }
         }        

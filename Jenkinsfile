@@ -13,6 +13,14 @@ pipeline {
             }
         }
 
+        stage("build image") {
+            steps {
+                script {
+                    sh "docker build -f src/entiy-data-webapi/Dockerfile ."
+                }
+            }
+        }
+        
         // stage ('Test') {
         //     steps {
         //         echo 'Testing'
